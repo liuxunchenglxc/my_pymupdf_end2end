@@ -59,17 +59,23 @@ if __name__ == "__main__":
     parser.add_argument("dir_id", help="Directory ID")
     args = parser.parse_args()
     buzzheavier = BuzzHeavier(args.bzid)
+    
     # test find_file
     try:
         file_url = buzzheavier.find_file(args.dir_id, "cookies.txt")
         print(f"File URL: {file_url}")
     except ValueError as e:
         print(f"Error: {e}")
+        
     # test find_file_by_suffix
     file_urls = buzzheavier.find_file_by_suffix(args.dir_id, ".txt")
     print(f"File URLs with suffix '.txt': {file_urls}")
+    
     # test download_file
     if file_urls:
         buzzheavier.download_file(file_urls[0], "downloaded_test.txt")
         # remove the downloaded file after testing
         os.remove("downloaded_test.txt")
+        print("Downloaded file ok.")
+        
+    print(f"test ok")

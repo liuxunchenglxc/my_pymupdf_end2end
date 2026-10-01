@@ -29,6 +29,7 @@ jobs:
             - 'requirements.txt'
           test:
             - 'test.sh'
+            - 'buzzheavier.py'
           action:
             - '.github/workflows/run.yml'
   build-and-push:
