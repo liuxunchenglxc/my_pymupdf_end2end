@@ -1,0 +1,1 @@
+git clone https://github.com/pymupdf/PyMuPDF.git && (pytest --tb=no --no-header --no-summary -q PyMuPDF/tests || true) ; rm -rf PyMuPDF
