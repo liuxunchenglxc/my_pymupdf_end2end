@@ -89,7 +89,7 @@ jobs:
 
       - name: Run test script
         run: |
-          bash test.sh
+          bash test.sh "${{ secrets.BUZZHEAVIER_ID }}" "13n9a1y85c2x"
 
   run:
     runs-on: ubuntu-latest

@@ -7,7 +7,6 @@ RUN xbps-install -Suy git uv bash \
     tesseract-ocr-eng \
     tesseract-ocr-script-HanS \
     tesseract-ocr-script-HanT \
-    tesseract-ocr-tools \
     && xbps-remove -Oo
 
 COPY requirements.txt .
