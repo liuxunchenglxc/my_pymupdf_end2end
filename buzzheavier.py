@@ -78,4 +78,4 @@ if __name__ == "__main__":
         os.remove("downloaded_test.txt")
         print("Downloaded file ok.")
         
-    print(f"test ok")
+    print(f"BuzzHeavier测试完成")
