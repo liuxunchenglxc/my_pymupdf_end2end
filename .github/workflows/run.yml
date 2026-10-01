@@ -17,6 +17,7 @@ jobs:
     outputs:
       docker: ${{ steps.filter.outputs.docker }}
       test: ${{ steps.filter.outputs.test }}
+      action: ${{ steps.filter.outputs.action }}
     steps:
     - uses: actions/checkout@v7
     - uses: dorny/paths-filter@v4
@@ -28,6 +29,8 @@ jobs:
             - 'requirements.txt'
           test:
             - 'test.sh'
+          action:
+            - '.github/workflows/run.yml'
   build-and-push:
     needs: changes
     if: ${{ needs.changes.outputs.docker == 'true' }}
@@ -67,8 +70,10 @@ jobs:
     needs: [changes, build-and-push]
     if: |
       always() && 
-      (needs.build-and-push.result == 'success' || needs.build-and-push.result == 'skipped') &&
-      needs.changes.outputs.test == 'true'
+      (
+        needs.build-and-push.result == 'success' ||
+        ((needs.changes.outputs.test == 'true' || needs.changes.outputs.action == 'true') && needs.build-and-push.result == 'skipped')
+      )
 
     container:
       image: ghcr.io/liuxunchenglxc/my_pymupdf_end2end:latest
