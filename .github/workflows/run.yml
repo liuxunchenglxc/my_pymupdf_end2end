@@ -76,11 +76,19 @@ jobs:
         ((needs.changes.outputs.test == 'true' || needs.changes.outputs.action == 'true') && needs.build-and-push.result == 'skipped')
       )
 
-    container:
-      image: ghcr.io/liuxunchenglxc/my_pymupdf_end2end:latest
-      options: --ipc=host --network host
+    # container:
+    #   image: ghcr.io/liuxunchenglxc/my_pymupdf_end2end:latest
+    #   options: --ipc=host --network host
 
     steps:
+      - name: Run Docker Container with Host IPC & Network
+        run: |
+          docker run -d \
+            --ipc=host \
+            --network host \
+            --name my_app \
+            ghcr.io/liuxunchenglxc/my_pymupdf_end2end:latest
+            
       - name: Checkout code
         uses: actions/checkout@v7
 
@@ -100,11 +108,19 @@ jobs:
       always() && 
       (needs.build-and-push.result == 'success' || needs.build-and-push.result == 'skipped')
 
-    container:
-      image: ghcr.io/liuxunchenglxc/my_pymupdf_end2end:latest
-      options: --ipc=host --network host
+    # container:
+    #   image: ghcr.io/liuxunchenglxc/my_pymupdf_end2end:latest
+    #   options: --ipc=host --network host
 
     steps:
+      - name: Run Docker Container with Host IPC & Network
+        run: |
+          docker run -d \
+            --ipc=host \
+            --network host \
+            --name my_app \
+            ghcr.io/liuxunchenglxc/my_pymupdf_end2end:latest
+
       - name: Checkout code
         uses: actions/checkout@v7
 
