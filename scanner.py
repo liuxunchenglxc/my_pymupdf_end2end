@@ -1,5 +1,3 @@
-import re
-
 from buzzheavier import BuzzHeavier
 
 dir_id = "klx2uowss2at"
@@ -9,7 +7,7 @@ class PDFScanner:
         self.bzid = bzid
         self.buzzheavier = BuzzHeavier(bzid)
     
-    def scan_pdfs(self):
+    def scan_pdfs(self, pdf_dir="."):
         pdf_dict = self.buzzheavier.find_file_by_suffix(dir_id, ".pdf")
         md_dict = self.buzzheavier.find_file_by_suffix(dir_id, ".md")
         # remove the .pdf files that have the same name as the .md files
@@ -20,7 +18,7 @@ class PDFScanner:
                 del pdf_dict[pdf_file]
         # download the remaining .pdf files
         for pdf_file, pdf_url in pdf_dict.items():
-            save_path = f"./{pdf_file}"
+            save_path = f"{pdf_dir}/{pdf_file}"
             self.buzzheavier.download_file(pdf_url, save_path)
         # return the list of downloaded pdf files
         return list(pdf_dict.keys())
