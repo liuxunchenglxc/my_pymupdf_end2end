@@ -27,13 +27,13 @@ class BuzzHeavier:
         response = requests.get(durl, headers=head)
         response.raise_for_status()
         data = response.json()
-        file_url_list = []
+        file_dict = {}
         for item in data["data"]["children"]:
             if item["name"].endswith(suffix):
                 print(f"Found {item['name']}!")
-                file_url_list.append(f"https://ts.buzzheavier.com/d/{item['id']}")
-        return file_url_list
-    
+                file_dict[item['name']] = f"https://ts.buzzheavier.com/d/{item['id']}"
+        return file_dict
+
     def download_file(self, file_url, save_path):
         head = {
             'Authorization': f'Bearer {self.bzid}'
