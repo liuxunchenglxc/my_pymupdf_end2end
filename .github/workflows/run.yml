@@ -30,6 +30,7 @@ jobs:
           test:
             - 'test.sh'
             - 'buzzheavier.py'
+            - 'scanner.py'
           action:
             - '.github/workflows/run.yml'
   build-and-push:
