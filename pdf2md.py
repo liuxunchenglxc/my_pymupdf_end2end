@@ -19,7 +19,7 @@ def main(args):
     md_files = []
     for pdf_file in downloaded_pdfs:
         print(f"Converting {pdf_file} to markdown...")
-        md = pymupdf4llm.to_markdown(pdf_file, footer=False, header=False, embed_images=True)#, ocr_function=rapidtess_api.exec_ocr)#, ocr_language="eng")
+        md = pymupdf4llm.to_markdown(pdf_file, footer=False, header=False, embed_images=False)#, ocr_function=rapidtess_api.exec_ocr)#, ocr_language="eng")
         md_file = pdf_file.replace(".pdf", ".md")
         with open(md_file, "w", encoding="utf-8") as f:
             f.write(md)
