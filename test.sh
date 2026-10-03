@@ -1,3 +1,6 @@
+echo "test tesseract"
+tesseract --list-langs
+
 #### $1 bzid
 #### $2 dir_id
 
