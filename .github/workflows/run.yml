@@ -78,7 +78,7 @@ jobs:
 
     container:
       image: ghcr.io/liuxunchenglxc/my_pymupdf_end2end:latest
-      options: --ipc=host 
+      options: --ipc=host --network host
 
     steps:
       - name: Checkout code
@@ -102,7 +102,7 @@ jobs:
 
     container:
       image: ghcr.io/liuxunchenglxc/my_pymupdf_end2end:latest
-      options: --ipc=host 
+      options: --ipc=host --network host
 
     steps:
       - name: Checkout code
