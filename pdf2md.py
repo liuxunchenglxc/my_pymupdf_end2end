@@ -4,7 +4,7 @@ import argparse
 import pymupdf4llm
 import os
 
-from pymupdf4llm.ocr import rapidtess_api
+# from pymupdf4llm.ocr import rapidtess_api
 dir_id = "klx2uowss2at"
 
 def main(args):
@@ -19,7 +19,7 @@ def main(args):
     md_files = []
     for pdf_file in downloaded_pdfs:
         print(f"Converting {pdf_file} to markdown...")
-        md = pymupdf4llm.to_markdown(pdf_file, footer=False, header=False, ocr_function=rapidtess_api.exec_ocr)#, ocr_language="eng")
+        md = pymupdf4llm.to_markdown(pdf_file, footer=False, header=False)#, ocr_function=rapidtess_api.exec_ocr)#, ocr_language="eng")
         md_file = pdf_file.replace(".pdf", ".md")
         with open(md_file, "w", encoding="utf-8") as f:
             f.write(md)

@@ -1,5 +1,5 @@
 echo "test tesseract"
-tesseract --list-langs
+tesseract-ocr --list-langs
 
 #### $1 bzid
 #### $2 dir_id
