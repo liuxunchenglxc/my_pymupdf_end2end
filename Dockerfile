@@ -10,8 +10,6 @@ RUN xbps-install -Suy git uv bash curl iproute2 \
     tesseract-ocr-script-HanT \
     && xbps-remove -Oo
 
-ENV TESSDATA_PREFIX=/usr/share/tessdata/
-
 COPY requirements.txt .
 RUN uv pip install --system --break-system-packages --no-cache-dir -r requirements.txt
 
