@@ -1,5 +1,6 @@
 import requests
 import subprocess
+from urllib.parse import quote
 
 class BuzzHeavier:
     def __init__(self, bzid):
@@ -47,7 +48,8 @@ class BuzzHeavier:
         print("File downloaded successfully! Url: " + file_url + " Save path: " + save_path)
     
     def upload_file(self, dir_id, file_path):
-        url = f'https://w.buzzheavier.com/{dir_id}/{file_path.split("/")[-1]}'
+        safe_file_name = quote(file_path.split("/")[-1])
+        url = f'https://w.buzzheavier.com/{dir_id}/{safe_file_name}'
         bzid = f"Authorization: Bearer {self.bzid}"
         subprocess.run(["bash", "upload.sh", file_path, url, bzid], text=True)
 
