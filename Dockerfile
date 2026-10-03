@@ -1,6 +1,6 @@
 FROM ghcr.io/void-linux/void-glibc:20261001r1
 
-RUN xbps-install -Suy git uv bash curl iproute2 libxcb \
+RUN xbps-install -Suy git uv bash curl iproute2 opencv \
     tesseract-ocr \
     tesseract-ocr-chi_sim \
     tesseract-ocr-chi_tra \
