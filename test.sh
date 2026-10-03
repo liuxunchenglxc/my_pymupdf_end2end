@@ -2,10 +2,10 @@
 #### $2 dir_id
 
 echo "test buzzheavier"
-python buzzheavier.py $1 $2
+python -u buzzheavier.py $1 $2
 
 echo "test scanner"
-python scanner.py $1
+python -u scanner.py $1
 
 echo "IP test"
 

@@ -115,5 +115,5 @@ jobs:
 
       - name: Run script
         run: |
-          uv run pdf2md.py "${{ secrets.BUZZHEAVIER_ID }}"
+          python -u pdf2md.py "${{ secrets.BUZZHEAVIER_ID }}"
 
