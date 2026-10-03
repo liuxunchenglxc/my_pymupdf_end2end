@@ -68,12 +68,12 @@ if __name__ == "__main__":
         print(f"Error: {e}")
         
     # test find_file_by_suffix
-    file_urls = buzzheavier.find_file_by_suffix(args.dir_id, ".txt")
-    print(f"File URLs with suffix '.txt': {file_urls}")
+    file_dict = buzzheavier.find_file_by_suffix(args.dir_id, ".txt")
+    print(f"File URLs with suffix '.txt': {list(file_dict.values())}")
     
     # test download_file
-    if file_urls:
-        buzzheavier.download_file(file_urls[0], "downloaded_test.txt")
+    if file_dict:
+        buzzheavier.download_file(list(file_dict.values())[0], "downloaded_test.txt")
         # remove the downloaded file after testing
         os.remove("downloaded_test.txt")
         print("Downloaded file ok.")
