@@ -2,3 +2,5 @@ pymupdf4llm
 pytest
 fontTools
 requests
+rapidocr
+onnxruntime
