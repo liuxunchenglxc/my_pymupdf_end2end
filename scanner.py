@@ -17,11 +17,13 @@ class PDFScanner:
                 print(f"Removing {pdf_file} because {md_file} exists.")
                 del pdf_dict[pdf_file]
         # download the remaining .pdf files
+        paths = []
         for pdf_file, pdf_url in pdf_dict.items():
             save_path = f"{pdf_dir}/{pdf_file}"
             self.buzzheavier.download_file(pdf_url, save_path)
+            paths.append(save_path)
         # return the list of downloaded pdf files
-        return list(pdf_dict.keys())
+        return paths
 
 if __name__ == "__main__":
     import argparse
